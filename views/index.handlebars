@@ -7,69 +7,44 @@
 	        <p></p>
 	    </div>
   	</div>
+<ul>
+  {{#each burgers}}
+    {{#unless devoured}}
+    <li>{{burger_name}}
+      	<button class="devoured" data-devoured="{{devoured}}" data-id="{{id}}">EAT ME!
+          {{!-- this was my attempt at using partials it didn't work data-newDevoured=""="{{devoured}}"> --}}
+		{{!-- {{#if devoured}}EAT ME!{{else}}WASN'T THAT YUMMY!{{/if}} --}}
+	</button>
 
+	{{!-- <button class="delete-burger" data-id="{{this.id}}">DELETE!</button> --}}
+</li>
+      {{!-- {{> burgers/burger-block devoured=false}} --}}
 
-	<div class="row">
-	    <div class="col-sm-6">
+    {{/unless}}
+  {{/each}}
+</ul>
 
-			<br>
-			<h2>Burgers Available To Eat!</h2>
+<h2>These burgers were so filling!</h2>
 
-			<ul>
-			  {{#each burgers}}
-			    {{#unless this.devoured}}
-			      <li>
-			      	{{this.id}}
-			        {{this.burger_name}}
+<ul>
+  {{#each burgers}}
+  {{#if devoured}}
+    <li>
+        {{!--this was my attempt at using partials it didn't work {{> burgers/burger-block devoured=true}} --}}
+        {{burger_name}}
+      	<button class="devoured" data-devoured="{{devoured}}" data-id="{{id}}">Wasn't That Yummy?
+	</button>
+    {{/if}}
+  {{/each}}
+</ul>
 
-			        <form action="/{{this.id}}?_method=PUT" method="POST">
-			          <input type="hidden" name="devoured" value="true">
-			          <button class="btn-primary" type="submit">Devour It!</button>
-			        </form>
+<h2>Add a Burger</h2>
+<form class="create-form">
 
-			      </li>
-			    {{/unless}}
-			  {{/each}}
-			</ul>
+  <div class="form-group">
+    <label for="nom">Burger Name:</label>
+    <input type="text" id="nom" name="name">
+  </div>
 
-	    </div>
-
-	    <div class="col-sm-6">
-
-			<h2>Burgers That Have Been Eaten!</h2>
-			
-			  {{#each burgers}}
-			    {{#if this.devoured}}
-			      <li>
-			      	{{this.id}}
-			        {{this.burger_name}}
-
-			      </li>
-			    {{/if}}
-			  {{/each}}
-			
-	    </div>
-
-  	</div>
-	<!-- end .row -->
-
-	<div class="row">
-	    <div class="center col-sm-12">
-
-			<h2>Add A Burger!</h2>
-
-			<form class="create-update-form" action="/" method="POST">
-
-			  <div class="form-group">
-			    <p>Enter a burger you want to order and click the Submit Order button.</p>
-			    <input type="text" id="ca" name="burger_name">
-			  </div>
-			  
-			  <button class="btn-primary" type="submit">Submit Order</button>
-			</form>
-
-	    </div>
-	
-  	</div>
-
-</div>
+  <button type="submit">Add Burger</button>
+</form>

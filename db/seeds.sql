@@ -1,3 +1,4 @@
+use burgers_db;
 insert into burgers (burger_name)
 values ("SOCAL Burger");
 insert into burgers (burger_name)
