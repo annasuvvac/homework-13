@@ -1,7 +1,5 @@
-//imports the connections
-var connection = require("../config/connection.js");
 
-// this is to see the ????? 
+var connection = require("../config/connection.js");
 function printQuestionMarks(num) {
     var arr = [];
     for (var i = 0; i < num; i++) {
@@ -12,10 +10,8 @@ function printQuestionMarks(num) {
 function objToSql(ob) {
     var arr = [];
 
-    // loop through the keys and push the key/value as a string int arr
     for (var key in ob) {
         var value = ob[key];
-        // check to skip hidden properties
         if (Object.hasOwnProperty.call(ob, key)) {
             if (typeof value === "string" && value.indexOf(" ") >= 0) {
                 value = "'" + value + "'";
@@ -77,5 +73,5 @@ var orm = {
         });
     }
 };
-// Export the orm object for the model (burgers.js).
+
 module.exports = orm;
