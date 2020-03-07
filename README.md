@@ -19,4 +19,4 @@ Your app will store every burger in a database, whether devoured or not.
 
 
 # Heroku 
-link https://as-burgher-app.herokuapp.com/
+link https://guarded-ocean-12098.herokuapp.com/index
