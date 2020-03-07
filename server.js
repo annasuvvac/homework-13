@@ -9,6 +9,8 @@ app.use(express.json());
 
 var exphbs = require("express-handlebars");
 
+
+
 app.engine("handlebars", exphbs({ defaultLayout: "main" 
 , partialsDir: __dirname + './views/partials'
 }));
