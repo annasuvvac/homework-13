@@ -17,7 +17,7 @@
     "url": "https://github.com/Ana199816/homework-13/issues"
   },
   "dependencies": {
-    "express": "^4.16.3",
+    "express": "^4.17.3",
     "express-handlebars": "^3.0.0",
     "mysql": "^2.16.0"
   },
